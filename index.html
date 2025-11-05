@@ -19,7 +19,6 @@
             color: #fff;
         }
 
-        /* Navegación */
         nav {
             background: rgba(15, 32, 39, 0.95);
             backdrop-filter: blur(10px);
@@ -61,7 +60,6 @@
             text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
         }
 
-        /* Contenedor */
         .container {
             max-width: 1400px;
             margin: 2rem auto;
@@ -77,7 +75,6 @@
             font-weight: 700;
         }
 
-        /* Grid de semanas */
         .weeks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
@@ -85,9 +82,8 @@
             margin-bottom: 4rem;
         }
 
-        /* Tarjeta de semana */
         .week-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(15, 50, 70, 0.6);
             border: 2px solid rgba(0, 210, 255, 0.3);
             border-radius: 20px;
             padding: 2rem;
@@ -120,8 +116,8 @@
 
         .week-header {
             display: flex;
-            justify-content: space-between;
             align-items: flex-start;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
@@ -144,7 +140,6 @@
 
         .week-title-section {
             flex: 1;
-            margin: 0 1.5rem;
         }
 
         .week-title {
@@ -157,7 +152,7 @@
         .week-subtitle {
             color: #80d4e8;
             font-size: 1rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .week-badge {
@@ -169,28 +164,7 @@
             display: inline-block;
             font-weight: 500;
             box-shadow: 0 4px 10px rgba(65, 105, 225, 0.4);
-        }
-
-        .edit-btn {
-            background: transparent;
-            border: 2px solid #00d2ff;
-            color: #00d2ff;
-            padding: 0.6rem 1.2rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .edit-btn:hover {
-            background: #00d2ff;
-            color: #0f2027;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+            margin-top: 0.5rem;
         }
 
         .week-description {
@@ -228,7 +202,7 @@
 
         .week-links {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 1rem;
             margin-top: 1.5rem;
             position: relative;
@@ -236,23 +210,122 @@
         }
 
         .link-btn {
-            background: linear-gradient(135deg, rgba(80, 60, 50, 0.6), rgba(100, 80, 70, 0.6));
-            border: 2px solid rgba(212, 165, 116, 0.3);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            color: #d4a574;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
-            text-align: left;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
         }
 
-        .link-btn:hover {
-            background: linear-gradient(135deg, rgba(100, 80, 70, 0.8), rgba(120, 100, 90, 0.8));
-            transform: translateX(10px);
-            border-color: rgba(212, 165, 116, 0.6);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        .link-btn.canva {
+            background: linear-gradient(135deg, #00d2ff, #0099cc);
+            color: #0f2027;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+        }
+
+        .link-btn.canva:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+            background: linear-gradient(135deg, #00ffff, #00bfff);
+        }
+
+        .link-btn.pdf {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .link-btn.pdf:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+            background: linear-gradient(135deg, #ff7979, #ff5252);
+        }
+
+        .link-btn.documento {
+            background: linear-gradient(135deg, #4169e1, #3651d4);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.4);
+        }
+
+        .link-btn.documento:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(65, 105, 225, 0.6);
+            background: linear-gradient(135deg, #5a7ff0, #4169e1);
+        }
+
+        .link-btn.video {
+            background: linear-gradient(135deg, #ff4757, #ff6348);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+
+        .link-btn.video:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.6);
+            background: linear-gradient(135deg, #ff5e6c, #ff7a5c);
+        }
+
+        .link-btn.drive {
+            background: linear-gradient(135deg, #ffc107, #ffb300);
+            color: #0f2027;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        .link-btn.drive:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6);
+            background: linear-gradient(135deg, #ffd54f, #ffc107);
+        }
+
+        .link-btn.otro {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+        }
+
+        .link-btn.otro:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.6);
+            background: linear-gradient(135deg, #a569bd, #9b59b6);
+        }
+
+        .link-btn i {
+            font-size: 1.2rem;
+        }
+
+        .edit-section {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 2;
+        }
+
+        .edit-btn {
+            background: transparent;
+            border: 2px solid #00d2ff;
+            color: #00d2ff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .edit-btn:hover {
+            background: #00d2ff;
+            color: #0f2027;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
         }
 
         /* Modal */
@@ -342,7 +415,7 @@
             font-weight: 500;
         }
 
-        input, textarea {
+        input, textarea, select {
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid rgba(0, 210, 255, 0.3);
             border-radius: 10px;
@@ -353,11 +426,20 @@
             transition: all 0.3s;
         }
 
-        input:focus, textarea:focus {
+        input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: #00d2ff;
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
             background: rgba(255, 255, 255, 0.08);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        select option {
+            background: #0f2027;
+            color: #fff;
         }
 
         textarea {
@@ -370,6 +452,103 @@
             font-size: 0.85rem;
             margin-top: 0.4rem;
             font-style: italic;
+        }
+
+        .links-manager {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            border: 2px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .links-manager h3 {
+            color: #00d2ff;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .link-input-group {
+            display: grid;
+            grid-template-columns: 2fr 3fr 1.5fr auto;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: end;
+        }
+
+        .add-link-btn {
+            background: linear-gradient(135deg, #00cc88, #00ff99);
+            color: #0f2027;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 153, 0.4);
+        }
+
+        .links-list {
+            margin-top: 1.5rem;
+        }
+
+        .link-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .link-item-info {
+            flex: 1;
+        }
+
+        .link-item-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.8rem;
+        }
+
+        .link-item-type.canva { background: rgba(0, 210, 255, 0.3); color: #00d2ff; }
+        .link-item-type.pdf { background: rgba(255, 107, 107, 0.3); color: #ff6b6b; }
+        .link-item-type.documento { background: rgba(65, 105, 225, 0.3); color: #4169e1; }
+        .link-item-type.video { background: rgba(255, 71, 87, 0.3); color: #ff4757; }
+        .link-item-type.drive { background: rgba(255, 193, 7, 0.3); color: #ffc107; }
+        .link-item-type.otro { background: rgba(155, 89, 182, 0.3); color: #9b59b6; }
+
+        .link-item-text {
+            color: #b0d4e3;
+            font-size: 0.95rem;
+        }
+
+        .remove-link-btn {
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid rgba(255, 68, 68, 0.4);
+            color: #ff4444;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .remove-link-btn:hover {
+            background: rgba(255, 68, 68, 0.4);
+            border-color: rgba(255, 68, 68, 0.6);
         }
 
         .modal-actions {
@@ -409,7 +588,6 @@
             box-shadow: 0 8px 20px rgba(255, 68, 68, 0.4);
         }
 
-        /* Sección de contenido */
         .content-section {
             display: none;
         }
@@ -445,11 +623,17 @@
             .form-grid {
                 grid-template-columns: 1fr;
             }
+            .link-input-group {
+                grid-template-columns: 1fr;
+            }
             nav ul {
                 gap: 1rem;
             }
             .page-title {
                 font-size: 2rem;
+            }
+            .week-links {
+                flex-direction: column;
             }
         }
     </style>
@@ -503,13 +687,13 @@
     <div id="editModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title"><i class="fas fa-edit"></i> Administrar Secciones</h2>
+                <h2 class="modal-title"><i class="fas fa-edit"></i> Administrar Semana</h2>
                 <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i> Cerrar</button>
             </div>
             <form id="editForm">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label><i class="fas fa-hashtag"></i> Número de Sección</label>
+                        <label><i class="fas fa-hashtag"></i> Número de Semana</label>
                         <input type="text" id="weekNumber" readonly>
                     </div>
                     <div class="form-group">
@@ -525,18 +709,43 @@
                         <textarea id="weekDescription" rows="4"></textarea>
                     </div>
                     <div class="form-group full">
-                        <label><i class="fas fa-link"></i> Enlaces (1 por línea)</label>
-                        <textarea id="weekLinks" rows="4" placeholder="Texto|URL"></textarea>
-                        <span class="format-hint">Formato: Texto|URL (ejemplo: Ver Manual Completo|https://www.canva.com/design/XXX)</span>
-                    </div>
-                    <div class="form-group full">
                         <label><i class="fas fa-tags"></i> Etiquetas (separadas por comas)</label>
-                        <input type="text" id="weekTags" placeholder="Guía Práctica, Microsoft Azure, SQL Server">
+                        <input type="text" id="weekTags" placeholder="Fundamentos teóricos, Actualizado">
                     </div>
                 </div>
+
+                <div class="links-manager">
+                    <h3><i class="fas fa-link"></i> Gestión de Enlaces</h3>
+                    <div class="link-input-group">
+                        <div class="form-group">
+                            <label>Tipo</label>
+                            <select id="linkType">
+                                <option value="canva">Canva</option>
+                                <option value="pdf">PDF</option>
+                                <option value="documento">Documento</option>
+                                <option value="video">Video</option>
+                                <option value="drive">Google Drive</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>URL del enlace</label>
+                            <input type="url" id="linkUrl" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label>Texto del botón</label>
+                            <input type="text" id="linkText" placeholder="Ver en Canva">
+                        </div>
+                        <button type="button" class="add-link-btn" onclick="addLink()">
+                            <i class="fas fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                    <div class="links-list" id="linksList"></div>
+                </div>
+
                 <div class="modal-actions">
                     <button type="submit" class="btn btn-save"><i class="fas fa-save"></i> Guardar Cambios</button>
-                    <button type="button" class="btn btn-delete" onclick="deleteWeek()"><i class="fas fa-trash"></i> Eliminar</button>
+                    <button type="button" class="btn btn-delete" onclick="deleteWeek()"><i class="fas fa-trash"></i> Restablecer</button>
                 </div>
             </form>
         </div>
@@ -545,24 +754,29 @@
     <script>
         let weeks = [];
         let currentEditingWeek = null;
+        let tempLinks = [];
         const STORAGE_KEY = 'bd2-weeks-data';
 
-        async function init() {
+        const linkIcons = {
+            canva: 'fa-palette',
+            pdf: 'fa-file-pdf',
+            documento: 'fa-file-word',
+            video: 'fa-video',
+            drive: 'fa-google-drive',
+            otro: 'fa-link'
+        };
+
+        function init() {
             loadWeeks();
             renderWeeks();
             setupNavigation();
         }
 
         function loadWeeks() {
-            try {
-                const stored = localStorage.getItem(STORAGE_KEY);
-                if (stored) {
-                    weeks = JSON.parse(stored);
-                } else {
-                    initializeDefaultWeeks();
-                }
-            } catch (error) {
-                console.log('Inicializando semanas por primera vez');
+            const stored = sessionStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                weeks = JSON.parse(stored);
+            } else {
                 initializeDefaultWeeks();
             }
         }
@@ -584,15 +798,7 @@
         }
 
         function saveWeeks() {
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(weeks));
-                console.log('Datos guardados exitosamente');
-                return true;
-            } catch (error) {
-                console.error('Error al guardar:', error);
-                alert('Error al guardar los cambios. Por favor intenta nuevamente.');
-                return false;
-            }
+            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(weeks));
         }
 
         function renderWeeks() {
@@ -603,9 +809,22 @@
             weeks.forEach((week, index) => {
                 const card = document.createElement('div');
                 card.className = 'week-card';
+                
                 const tagsHTML = week.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-                const linksHTML = week.links.map(link => `<button class="link-btn" onclick="window.open('${link.url}', '_blank')"><i class="fas fa-external-link-alt"></i> ${link.text}</button>`).join('');
+                
+                const linksHTML = week.links.map(link => {
+                    const icon = linkIcons[link.type] || 'fa-link';
+                    return `<a href="${link.url}" target="_blank" class="link-btn ${link.type}">
+                        <i class="fas ${icon}"></i> ${link.text}
+                    </a>`;
+                }).join('');
+                
                 card.innerHTML = `
+                    <div class="edit-section">
+                        <button class="edit-btn" onclick="openEditModal(${index})">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                    </div>
                     <div class="week-header">
                         <div class="week-number">${week.number}</div>
                         <div class="week-title-section">
@@ -613,7 +832,6 @@
                             ${week.subtitle ? `<p class="week-subtitle">${week.subtitle}</p>` : ''}
                             <span class="week-badge">${week.badge}</span>
                         </div>
-                        <button class="edit-btn" onclick="openEditModal(${index})"><i class="fas fa-edit"></i> Editar</button>
                     </div>
                     ${week.description ? `<p class="week-description">${week.description}</p>` : ''}
                     ${week.tags.length > 0 ? `<div class="week-tags">${tagsHTML}</div>` : ''}
@@ -626,19 +844,73 @@
         function openEditModal(index) {
             currentEditingWeek = index;
             const week = weeks[index];
+            tempLinks = [...week.links];
+            
             document.getElementById('weekNumber').value = week.number;
             document.getElementById('weekTitle').value = week.title;
             document.getElementById('weekSubtitle').value = week.subtitle;
             document.getElementById('weekDescription').value = week.description;
             document.getElementById('weekTags').value = week.tags.join(', ');
-            const linksText = week.links.map(link => `${link.text}|${link.url}`).join('\n');
-            document.getElementById('weekLinks').value = linksText;
+            
+            renderLinksList();
             document.getElementById('editModal').classList.add('active');
         }
 
         function closeModal() {
             document.getElementById('editModal').classList.remove('active');
             currentEditingWeek = null;
+            tempLinks = [];
+            document.getElementById('linkType').value = 'canva';
+            document.getElementById('linkUrl').value = '';
+            document.getElementById('linkText').value = '';
+        }
+
+        function addLink() {
+            const type = document.getElementById('linkType').value;
+            const url = document.getElementById('linkUrl').value.trim();
+            const text = document.getElementById('linkText').value.trim();
+
+            if (!url) {
+                alert('❌ Por favor ingresa una URL');
+                return;
+            }
+
+            if (!text) {
+                alert('❌ Por favor ingresa un texto para el botón');
+                return;
+            }
+
+            tempLinks.push({ type, url, text });
+            
+            document.getElementById('linkUrl').value = '';
+            document.getElementById('linkText').value = '';
+            
+            renderLinksList();
+        }
+
+        function removeLink(index) {
+            tempLinks.splice(index, 1);
+            renderLinksList();
+        }
+
+        function renderLinksList() {
+            const container = document.getElementById('linksList');
+            if (tempLinks.length === 0) {
+                container.innerHTML = '<p style="color: #6a9aaa; text-align: center; padding: 1rem;">No hay enlaces agregados</p>';
+                return;
+            }
+
+            container.innerHTML = tempLinks.map((link, index) => `
+                <div class="link-item">
+                    <div class="link-item-info">
+                        <span class="link-item-type ${link.type}">${link.type.toUpperCase()}</span>
+                        <span class="link-item-text">${link.text}</span>
+                    </div>
+                    <button type="button" class="remove-link-btn" onclick="removeLink(${index})">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </div>
+            `).join('');
         }
 
         document.getElementById('editForm').addEventListener('submit', function(e) {
@@ -647,31 +919,20 @@
             week.title = document.getElementById('weekTitle').value;
             week.subtitle = document.getElementById('weekSubtitle').value;
             week.description = document.getElementById('weekDescription').value;
+            
             const tagsInput = document.getElementById('weekTags').value;
             week.tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
-            const linksInput = document.getElementById('weekLinks').value;
-            week.links = [];
-            if (linksInput) {
-                const lines = linksInput.split('\n').filter(l => l.trim());
-                lines.forEach(line => {
-                    const parts = line.split('|').map(p => p.trim());
-                    if (parts.length >= 2) {
-                        week.links.push({
-                            text: parts[0],
-                            url: parts[1]
-                        });
-                    }
-                });
-            }
-            if (saveWeeks()) {
-                renderWeeks();
-                closeModal();
-                alert('✅ Cambios guardados exitosamente');
-            }
+            
+            week.links = [...tempLinks];
+            
+            saveWeeks();
+            renderWeeks();
+            closeModal();
+            alert('✅ Cambios guardados exitosamente');
         });
 
         function deleteWeek() {
-            if (confirm('¿Estás seguro de que quieres eliminar esta semana? Se restablecerán los valores por defecto.')) {
+            if (confirm('¿Estás seguro de que quieres restablecer esta semana? Se perderán todos los datos.')) {
                 const week = weeks[currentEditingWeek];
                 const weekNum = week.number;
                 weeks[currentEditingWeek] = {
@@ -683,11 +944,10 @@
                     links: [],
                     badge: 'Nuevo'
                 };
-                if (saveWeeks()) {
-                    renderWeeks();
-                    closeModal();
-                    alert('🗑️ Semana eliminada y restablecida');
-                }
+                saveWeeks();
+                renderWeeks();
+                closeModal();
+                alert('🗑️ Semana restablecida');
             }
         }
 
