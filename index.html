@@ -472,17 +472,19 @@
         let weeks = [];
         let currentEditingWeek = null;
 
+        const STORAGE_KEY = 'bd2-weeks-data';
+
         async function init() {
-            await loadWeeks();
+            loadWeeks();
             renderWeeks();
             setupNavigation();
         }
 
-        async function loadWeeks() {
+        function loadWeeks() {
             try {
-                const result = await window.storage.get('weeks-data');
-                if (result && result.value) {
-                    weeks = JSON.parse(result.value);
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) {
+                    weeks = JSON.parse(stored);
                 } else {
                     initializeDefaultWeeks();
                 }
@@ -508,13 +510,15 @@
             saveWeeks();
         }
 
-        async function saveWeeks() {
+        function saveWeeks() {
             try {
-                await window.storage.set('weeks-data', JSON.stringify(weeks));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(weeks));
                 console.log('Datos guardados exitosamente');
+                return true;
             } catch (error) {
                 console.error('Error al guardar:', error);
                 alert('Error al guardar los cambios. Por favor intenta nuevamente.');
+                return false;
             }
         }
 
@@ -564,14 +568,17 @@
             currentEditingWeek = null;
         }
 
-        document.getElementById('editForm').addEventListener('submit', async function(e) {
+        document.getElementById('editForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
             const week = weeks[currentEditingWeek];
             week.title = document.getElementById('weekTitle').value;
             week.subtitle = document.getElementById('weekSubtitle').value;
             week.description = document.getElementById('weekDescription').value;
+            
             const tagsInput = document.getElementById('weekTags').value;
             week.tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
+            
             const linksInput = document.getElementById('weekLinks').value;
             week.links = [];
             if (linksInput) {
@@ -586,13 +593,15 @@
                     }
                 });
             }
-            await saveWeeks();
-            renderWeeks();
-            closeModal();
-            alert('Cambios guardados exitosamente');
+            
+            if (saveWeeks()) {
+                renderWeeks();
+                closeModal();
+                alert('Cambios guardados exitosamente');
+            }
         });
 
-        async function deleteWeek() {
+        function deleteWeek() {
             if (confirm('¿Estás seguro de que quieres eliminar esta semana? Se restablecerán los valores por defecto.')) {
                 const week = weeks[currentEditingWeek];
                 const weekNum = week.number;
@@ -605,10 +614,12 @@
                     links: [],
                     badge: 'Nuevo'
                 };
-                await saveWeeks();
-                renderWeeks();
-                closeModal();
-                alert('Semana eliminada y restablecida');
+                
+                if (saveWeeks()) {
+                    renderWeeks();
+                    closeModal();
+                    alert('Semana eliminada y restablecida');
+                }
             }
         }
 
@@ -637,4 +648,3 @@
     </script>
 </body>
 </html>
-
