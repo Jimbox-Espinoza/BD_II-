@@ -28,6 +28,41 @@
             top: 0;
             z-index: 100;
             border-bottom: 2px solid rgba(0, 210, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.6));
+        }
+
+        .nav-logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0f2027;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-logo-placeholder:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0, 210, 255, 0.5);
         }
 
         nav ul {
@@ -36,6 +71,7 @@
             justify-content: center;
             gap: 3rem;
             flex-wrap: wrap;
+            flex: 1;
         }
 
         nav a {
@@ -73,6 +109,90 @@
             color: #00d2ff;
             text-shadow: 0 0 30px rgba(0, 210, 255, 0.8);
             font-weight: 700;
+        }
+
+        /* Indicador de progreso */
+        .progress-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0 3rem;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .progress-circle {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s ease;
+            stroke: #00d2ff;
+            stroke-linecap: round;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .progress-percentage {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00d2ff;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+        }
+
+        .progress-label {
+            font-size: 0.9rem;
+            color: #80d4e8;
+            margin-top: 0.3rem;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 15px;
+            padding: 1.2rem 1.8rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            border-color: rgba(0, 210, 255, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-number.terminado { color: #00ff99; }
+        .stat-number.en-proceso { color: #9b59b6; }
+        .stat-number.importante { color: #ffc107; }
+        .stat-number.nuevo { color: #4169e1; }
+
+        .stat-label {
+            color: #80d4e8;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .weeks-grid {
@@ -156,15 +276,35 @@
         }
 
         .week-badge {
-            background: #4169e1;
-            color: #fff;
             padding: 0.4rem 1.2rem;
             border-radius: 25px;
             font-size: 0.85rem;
             display: inline-block;
             font-weight: 500;
-            box-shadow: 0 4px 10px rgba(65, 105, 225, 0.4);
             margin-top: 0.5rem;
+            color: #fff;
+        }
+
+        .week-badge.nuevo {
+            background: #4169e1;
+            box-shadow: 0 4px 10px rgba(65, 105, 225, 0.4);
+        }
+
+        .week-badge.importante {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: #0f2027;
+            box-shadow: 0 4px 10px rgba(255, 193, 7, 0.5);
+        }
+
+        .week-badge.terminado {
+            background: linear-gradient(135deg, #00cc88, #00ff99);
+            color: #0f2027;
+            box-shadow: 0 4px 10px rgba(0, 255, 153, 0.5);
+        }
+
+        .week-badge.en-proceso {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            box-shadow: 0 4px 10px rgba(155, 89, 182, 0.5);
         }
 
         .week-description {
@@ -616,6 +756,163 @@
             line-height: 1.8;
         }
 
+        /* Sección de Inicio - Perfil */
+        .profile-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00d2ff;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+        }
+
+        .profile-image-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #0f2027;
+            border: 4px solid #00d2ff;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+        }
+
+        .profile-welcome {
+            font-size: 2.5rem;
+            color: #00d2ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+        }
+
+        .profile-bio {
+            font-size: 1.2rem;
+            color: #b0d4e3;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-edit-btn {
+            background: linear-gradient(135deg, #00d2ff, #0099cc);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            color: #0f2027;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+        }
+
+        .profile-edit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+            background: linear-gradient(135deg, #00ffff, #00bfff);
+        }
+
+        /* Modal de Perfil */
+        .profile-form-group {
+            margin-bottom: 2rem;
+        }
+
+        .image-upload-area {
+            border: 2px dashed rgba(0, 210, 255, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .image-upload-area:hover {
+            border-color: rgba(0, 210, 255, 0.7);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .image-upload-area.dragover {
+            border-color: #00d2ff;
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: #00d2ff;
+            margin-bottom: 1rem;
+        }
+
+        .upload-text {
+            color: #80d4e8;
+            font-size: 1rem;
+        }
+
+        .image-preview {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 15px;
+            margin: 1rem auto;
+            display: none;
+            border: 2px solid #00d2ff;
+        }
+
+        .image-preview.show {
+            display: block;
+        }
+
+        .logo-upload-area {
+            border: 2px dashed rgba(0, 210, 255, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .logo-upload-area:hover {
+            border-color: rgba(0, 210, 255, 0.7);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .logo-preview {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 10px;
+            margin: 1rem auto;
+            display: none;
+        }
+
+        .logo-preview.show {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .weeks-grid {
                 grid-template-columns: 1fr;
@@ -635,30 +932,99 @@
             .week-links {
                 flex-direction: column;
             }
+            .profile-welcome {
+                font-size: 1.8rem;
+            }
+            .profile-bio {
+                font-size: 1rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
+        <div id="navLogoContainer" class="nav-logo-placeholder" onclick="openProfileModal()">
+            <i class="fas fa-image"></i>
+        </div>
         <ul>
             <li><a href="#" data-page="inicio" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
             <li><a href="#" data-page="semanas" class="nav-link"><i class="fas fa-calendar-week"></i> Semanas</a></li>
+            <li><a href="#" data-page="sobre-mi" class="nav-link"><i class="fas fa-user"></i> Sobre Mí</a></li>
             <li><a href="#" data-page="examenes" class="nav-link"><i class="fas fa-file-alt"></i> Exámenes</a></li>
             <li><a href="#" data-page="recursos" class="nav-link"><i class="fas fa-book"></i> Recursos</a></li>
             <li><a href="#" data-page="contacto" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
         </ul>
+        <div style="width: 60px;"></div>
     </nav>
 
     <div class="container">
         <div id="inicio" class="content-section active">
+            <div class="profile-section">
+                <div class="profile-image-container" id="profileImageContainer">
+                    <div class="profile-image-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <h1 class="profile-welcome" id="profileWelcome">Bienvenido al Repositorio</h1>
+                <p class="profile-bio" id="profileBio">Sistema de gestión y almacenamiento de trabajos académicos organizados por semanas. Explora, edita y administra tu contenido de manera eficiente.</p>
+                <button class="profile-edit-btn" onclick="openProfileModal()">
+                    <i class="fas fa-edit"></i> Editar Perfil
+                </button>
+            </div>
+        </div>
+
+        <div id="sobre-mi" class="content-section">
             <div class="info-section">
-                <h1>Bienvenido al Repositorio</h1>
-                <p>Sistema de gestión y almacenamiento de trabajos académicos organizados por semanas. Explora, edita y administra tu contenido de manera eficiente.</p>
+                <div class="profile-image-container" id="aboutImageContainer" style="margin: 0 auto 2rem;">
+                    <div class="profile-image-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <h1>Sobre Mí</h1>
+                <p id="aboutBio" style="white-space: pre-line;">Aquí puedes escribir más información sobre ti, tus intereses académicos, proyectos y objetivos.</p>
             </div>
         </div>
 
         <div id="semanas" class="content-section">
             <h1 class="page-title">Mis Semanas</h1>
+            
+            <div class="progress-section">
+                <div class="progress-circle">
+                    <svg class="progress-ring" width="180" height="180">
+                        <circle
+                            class="progress-ring-bg"
+                            stroke="rgba(0, 210, 255, 0.1)"
+                            stroke-width="12"
+                            fill="transparent"
+                            r="80"
+                            cx="90"
+                            cy="90"
+                        />
+                        <circle
+                            id="progressCircle"
+                            class="progress-ring-circle"
+                            stroke-width="12"
+                            fill="transparent"
+                            r="80"
+                            cx="90"
+                            cy="90"
+                            stroke-dasharray="502.65"
+                            stroke-dashoffset="502.65"
+                        />
+                    </svg>
+                    <div class="progress-text">
+                        <div class="progress-percentage" id="progressPercentage">0%</div>
+                        <div class="progress-label">Completado</div>
+                    </div>
+                </div>
+                
+                <div class="stats-container" id="statsContainer"></div>
+            </div>
+            
             <div class="weeks-grid" id="weeksContainer"></div>
         </div>
 
@@ -699,6 +1065,15 @@
                     <div class="form-group">
                         <label><i class="fas fa-heading"></i> Título</label>
                         <input type="text" id="weekTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-flag"></i> Estado</label>
+                        <select id="weekBadge">
+                            <option value="nuevo">Nuevo</option>
+                            <option value="importante">Importante</option>
+                            <option value="en-proceso">En Proceso</option>
+                            <option value="terminado">Terminado</option>
+                        </select>
                     </div>
                     <div class="form-group full">
                         <label><i class="fas fa-align-left"></i> Subtítulo</label>
@@ -751,11 +1126,63 @@
         </div>
     </div>
 
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><i class="fas fa-user-edit"></i> Editar Perfil</h2>
+                <button class="close-btn" onclick="closeProfileModal()"><i class="fas fa-times"></i> Cerrar</button>
+            </div>
+            <form id="profileForm">
+                <div class="form-group full profile-form-group">
+                    <label><i class="fas fa-image"></i> Logo del Menú</label>
+                    <div class="logo-upload-area" id="logoUploadArea">
+                        <i class="fas fa-upload upload-icon" style="font-size: 2rem;"></i>
+                        <p class="upload-text">Haz clic o arrastra tu logo aquí<br><small>Formato: JPG, PNG (Max 2MB)</small></p>
+                    </div>
+                    <img id="logoPreview" class="logo-preview">
+                    <input type="file" id="logoInput" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="form-group full profile-form-group">
+                    <label><i class="fas fa-image"></i> Foto de Perfil</label>
+                    <div class="image-upload-area" id="imageUploadArea">
+                        <i class="fas fa-upload upload-icon"></i>
+                        <p class="upload-text">Haz clic o arrastra tu foto aquí<br><small>Formato: JPG, PNG (Max 2MB)</small></p>
+                    </div>
+                    <img id="imagePreview" class="image-preview">
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="form-group full">
+                    <label><i class="fas fa-heading"></i> Mensaje de Bienvenida</label>
+                    <input type="text" id="profileWelcomeInput" placeholder="Bienvenido al Repositorio">
+                </div>
+
+                <div class="form-group full">
+                    <label><i class="fas fa-align-left"></i> Biografía</label>
+                    <textarea id="profileBioInput" rows="6" placeholder="Escribe una breve descripción sobre ti..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-save"><i class="fas fa-save"></i> Guardar Perfil</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         let weeks = [];
         let currentEditingWeek = null;
         let tempLinks = [];
         const STORAGE_KEY = 'bd2-weeks-data';
+        const PROFILE_KEY = 'bd2-profile-data';
+
+        let profileData = {
+            logo: '',
+            image: '',
+            welcome: 'Bienvenido al Repositorio',
+            bio: 'Sistema de gestión y almacenamiento de trabajos académicos organizados por semanas. Explora, edita y administra tu contenido de manera eficiente.'
+        };
 
         const linkIcons = {
             canva: 'fa-palette',
@@ -768,8 +1195,11 @@
 
         function init() {
             loadWeeks();
+            loadProfile();
             renderWeeks();
+            renderProfile();
             setupNavigation();
+            setupProfileUpload();
         }
 
         function loadWeeks() {
@@ -791,7 +1221,7 @@
                     description: '',
                     tags: [],
                     links: [],
-                    badge: 'Nuevo'
+                    badge: 'nuevo'
                 });
             }
             saveWeeks();
@@ -801,9 +1231,187 @@
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(weeks));
         }
 
+        function loadProfile() {
+            const stored = sessionStorage.getItem(PROFILE_KEY);
+            if (stored) {
+                profileData = JSON.parse(stored);
+            }
+        }
+
+        function saveProfile() {
+            sessionStorage.setItem(PROFILE_KEY, JSON.stringify(profileData));
+        }
+
+        function renderProfile() {
+            // Logo en el menú
+            const navLogoContainer = document.getElementById('navLogoContainer');
+            if (profileData.logo) {
+                navLogoContainer.innerHTML = `<img src="${profileData.logo}" alt="Logo" class="nav-logo">`;
+            } else {
+                navLogoContainer.innerHTML = '<i class="fas fa-image"></i>';
+                navLogoContainer.className = 'nav-logo-placeholder';
+            }
+
+            // Imagen de perfil en Inicio
+            const profileImageContainer = document.getElementById('profileImageContainer');
+            if (profileData.image) {
+                profileImageContainer.innerHTML = `<img src="${profileData.image}" alt="Perfil" class="profile-image">`;
+            } else {
+                profileImageContainer.innerHTML = '<div class="profile-image-placeholder"><i class="fas fa-user"></i></div>';
+            }
+
+            // Imagen de perfil en Sobre Mí
+            const aboutImageContainer = document.getElementById('aboutImageContainer');
+            if (profileData.image) {
+                aboutImageContainer.innerHTML = `<img src="${profileData.image}" alt="Perfil" class="profile-image">`;
+            } else {
+                aboutImageContainer.innerHTML = '<div class="profile-image-placeholder"><i class="fas fa-user"></i></div>';
+            }
+
+            // Textos
+            document.getElementById('profileWelcome').textContent = profileData.welcome;
+            document.getElementById('profileBio').textContent = profileData.bio;
+            document.getElementById('aboutBio').textContent = profileData.bio;
+        }
+
+        function setupProfileUpload() {
+            const imageUploadArea = document.getElementById('imageUploadArea');
+            const imageInput = document.getElementById('imageInput');
+            const imagePreview = document.getElementById('imagePreview');
+
+            const logoUploadArea = document.getElementById('logoUploadArea');
+            const logoInput = document.getElementById('logoInput');
+            const logoPreview = document.getElementById('logoPreview');
+
+            // Upload de imagen de perfil
+            imageUploadArea.addEventListener('click', () => imageInput.click());
+            
+            imageUploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                imageUploadArea.classList.add('dragover');
+            });
+
+            imageUploadArea.addEventListener('dragleave', () => {
+                imageUploadArea.classList.remove('dragover');
+            });
+
+            imageUploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                imageUploadArea.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    handleImageUpload(file, imagePreview);
+                }
+            });
+
+            imageInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    handleImageUpload(file, imagePreview);
+                }
+            });
+
+            // Upload de logo
+            logoUploadArea.addEventListener('click', () => logoInput.click());
+            
+            logoUploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                logoUploadArea.classList.add('dragover');
+            });
+
+            logoUploadArea.addEventListener('dragleave', () => {
+                logoUploadArea.classList.remove('dragover');
+            });
+
+            logoUploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                logoUploadArea.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    handleImageUpload(file, logoPreview);
+                }
+            });
+
+            logoInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    handleImageUpload(file, logoPreview);
+                }
+            });
+        }
+
+        function handleImageUpload(file, previewElement) {
+            if (file.size > 2 * 1024 * 1024) {
+                alert('❌ La imagen es muy grande. Máximo 2MB');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewElement.src = e.target.result;
+                previewElement.classList.add('show');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function openProfileModal() {
+            document.getElementById('profileWelcomeInput').value = profileData.welcome;
+            document.getElementById('profileBioInput').value = profileData.bio;
+            
+            const imagePreview = document.getElementById('imagePreview');
+            const logoPreview = document.getElementById('logoPreview');
+            
+            if (profileData.image) {
+                imagePreview.src = profileData.image;
+                imagePreview.classList.add('show');
+            } else {
+                imagePreview.classList.remove('show');
+            }
+
+            if (profileData.logo) {
+                logoPreview.src = profileData.logo;
+                logoPreview.classList.add('show');
+            } else {
+                logoPreview.classList.remove('show');
+            }
+            
+            document.getElementById('profileModal').classList.add('active');
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profileModal').classList.remove('active');
+            document.getElementById('imageInput').value = '';
+            document.getElementById('logoInput').value = '';
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const imagePreview = document.getElementById('imagePreview');
+            const logoPreview = document.getElementById('logoPreview');
+            
+            if (imagePreview.classList.contains('show')) {
+                profileData.image = imagePreview.src;
+            }
+
+            if (logoPreview.classList.contains('show')) {
+                profileData.logo = logoPreview.src;
+            }
+            
+            profileData.welcome = document.getElementById('profileWelcomeInput').value;
+            profileData.bio = document.getElementById('profileBioInput').value;
+            
+            saveProfile();
+            renderProfile();
+            closeProfileModal();
+            alert('✅ Perfil actualizado exitosamente');
+        });
+
         function renderWeeks() {
             const container = document.getElementById('weeksContainer');
             if (!container) return;
+            
+            updateProgressStats();
             
             container.innerHTML = '';
             weeks.forEach((week, index) => {
@@ -819,6 +1427,13 @@
                     </a>`;
                 }).join('');
                 
+                const badgeText = {
+                    'nuevo': 'Nuevo',
+                    'importante': 'Importante',
+                    'en-proceso': 'En Proceso',
+                    'terminado': 'Terminado'
+                };
+                
                 card.innerHTML = `
                     <div class="edit-section">
                         <button class="edit-btn" onclick="openEditModal(${index})">
@@ -830,7 +1445,7 @@
                         <div class="week-title-section">
                             <h3 class="week-title">${week.title}</h3>
                             ${week.subtitle ? `<p class="week-subtitle">${week.subtitle}</p>` : ''}
-                            <span class="week-badge">${week.badge}</span>
+                            <span class="week-badge ${week.badge}">${badgeText[week.badge] || 'Nuevo'}</span>
                         </div>
                     </div>
                     ${week.description ? `<p class="week-description">${week.description}</p>` : ''}
@@ -839,6 +1454,53 @@
                 `;
                 container.appendChild(card);
             });
+        }
+
+        function updateProgressStats() {
+            const stats = {
+                'terminado': 0,
+                'en-proceso': 0,
+                'importante': 0,
+                'nuevo': 0
+            };
+            
+            weeks.forEach(week => {
+                if (stats.hasOwnProperty(week.badge)) {
+                    stats[week.badge]++;
+                }
+            });
+            
+            const totalWeeks = weeks.length;
+            const completedWeeks = stats['terminado'];
+            const percentage = Math.round((completedWeeks / totalWeeks) * 100);
+            
+            // Actualizar círculo de progreso
+            const circle = document.getElementById('progressCircle');
+            const percentageText = document.getElementById('progressPercentage');
+            if (circle && percentageText) {
+                const circumference = 2 * Math.PI * 80;
+                const offset = circumference - (percentage / 100) * circumference;
+                circle.style.strokeDashoffset = offset;
+                percentageText.textContent = percentage + '%';
+            }
+            
+            // Actualizar estadísticas
+            const statsContainer = document.getElementById('statsContainer');
+            if (statsContainer) {
+                const labels = {
+                    'terminado': 'Terminado',
+                    'en-proceso': 'En Proceso',
+                    'importante': 'Importante',
+                    'nuevo': 'Nuevo'
+                };
+                
+                statsContainer.innerHTML = Object.keys(stats).map(key => `
+                    <div class="stat-item">
+                        <div class="stat-number ${key}">${stats[key]}</div>
+                        <div class="stat-label">${labels[key]}</div>
+                    </div>
+                `).join('');
+            }
         }
 
         function openEditModal(index) {
@@ -851,6 +1513,7 @@
             document.getElementById('weekSubtitle').value = week.subtitle;
             document.getElementById('weekDescription').value = week.description;
             document.getElementById('weekTags').value = week.tags.join(', ');
+            document.getElementById('weekBadge').value = week.badge || 'nuevo';
             
             renderLinksList();
             document.getElementById('editModal').classList.add('active');
@@ -919,6 +1582,7 @@
             week.title = document.getElementById('weekTitle').value;
             week.subtitle = document.getElementById('weekSubtitle').value;
             week.description = document.getElementById('weekDescription').value;
+            week.badge = document.getElementById('weekBadge').value;
             
             const tagsInput = document.getElementById('weekTags').value;
             week.tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
@@ -942,7 +1606,7 @@
                     description: '',
                     tags: [],
                     links: [],
-                    badge: 'Nuevo'
+                    badge: 'nuevo'
                 };
                 saveWeeks();
                 renderWeeks();
@@ -969,6 +1633,12 @@
         document.getElementById('editModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
+            }
+        });
+
+        document.getElementById('profileModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProfileModal();
             }
         });
 
