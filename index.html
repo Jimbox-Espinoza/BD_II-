@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio de Trabajos</title>
+    <title>Repositorio de Trabajos - BD II</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,19 +14,21 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             min-height: 100vh;
             color: #fff;
         }
 
+        /* Navegación */
         nav {
-            background: rgba(30, 50, 70, 0.9);
+            background: rgba(15, 32, 39, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 2px solid rgba(0, 210, 255, 0.3);
         }
 
         nav ul {
@@ -44,17 +47,21 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 500;
         }
 
         nav a:hover {
-            color: #00ffff;
+            color: #00d2ff;
             transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
         }
 
         nav a.active {
-            color: #00ffff;
+            color: #00d2ff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
         }
 
+        /* Contenedor */
         .container {
             max-width: 1400px;
             margin: 2rem auto;
@@ -63,143 +70,192 @@
 
         .page-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #00ffff;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            font-size: 3rem;
+            margin: 3rem 0 2rem;
+            color: #00d2ff;
+            text-shadow: 0 0 30px rgba(0, 210, 255, 0.8);
+            font-weight: 700;
         }
 
+        /* Grid de semanas */
         .weeks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
 
+        /* Tarjeta de semana */
         .week-card {
-            background: rgba(40, 60, 80, 0.6);
-            border: 2px solid rgba(0, 200, 200, 0.3);
-            border-radius: 15px;
-            padding: 1.5rem;
-            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
         .week-card:hover {
-            border-color: rgba(0, 255, 255, 0.6);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+            border-color: rgba(0, 210, 255, 0.8);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.3);
+        }
+
+        .week-card:hover::before {
+            opacity: 1;
         }
 
         .week-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .week-number {
-            background: #00ffff;
-            color: #1a2332;
-            width: 60px;
-            height: 60px;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            color: #0f2027;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
         }
 
         .week-title-section {
             flex: 1;
-            margin-left: 1rem;
+            margin: 0 1.5rem;
         }
 
         .week-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
             color: #fff;
+            font-weight: 600;
         }
 
         .week-subtitle {
             color: #80d4e8;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
         }
 
         .week-badge {
             background: #4169e1;
             color: #fff;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
+            padding: 0.4rem 1.2rem;
+            border-radius: 25px;
             font-size: 0.85rem;
             display: inline-block;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(65, 105, 225, 0.4);
         }
 
         .edit-btn {
             background: transparent;
-            border: 2px solid #00ffff;
-            color: #00ffff;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            border: 2px solid #00d2ff;
+            color: #00d2ff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .edit-btn:hover {
-            background: #00ffff;
-            color: #1a2332;
+            background: #00d2ff;
+            color: #0f2027;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
         }
 
         .week-description {
-            color: #b0c4d4;
-            line-height: 1.6;
-            margin: 1rem 0;
-            font-size: 0.95rem;
+            color: #b0d4e3;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .week-tags {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            position: relative;
+            z-index: 1;
         }
 
         .tag {
-            background: rgba(0, 150, 150, 0.3);
-            border: 1px solid rgba(0, 200, 200, 0.5);
-            padding: 0.4rem 0.8rem;
+            background: rgba(0, 210, 255, 0.2);
+            border: 1px solid rgba(0, 210, 255, 0.4);
+            padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             color: #80d4e8;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: rgba(0, 210, 255, 0.3);
+            border-color: rgba(0, 210, 255, 0.6);
         }
 
         .week-links {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
-            margin-top: 1rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .link-btn {
-            background: rgba(80, 60, 50, 0.8);
-            border: none;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(80, 60, 50, 0.6), rgba(100, 80, 70, 0.6));
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
             color: #d4a574;
             cursor: pointer;
             transition: all 0.3s;
             text-align: left;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .link-btn:hover {
-            background: rgba(100, 80, 70, 0.9);
-            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(100, 80, 70, 0.8), rgba(120, 100, 90, 0.8));
+            transform: translateX(10px);
+            border-color: rgba(212, 165, 116, 0.6);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -207,9 +263,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             z-index: 1000;
             overflow-y: auto;
+            backdrop-filter: blur(5px);
         }
 
         .modal.active {
@@ -220,14 +277,15 @@
         }
 
         .modal-content {
-            background: #1a2a3a;
-            border: 2px solid #00ffff;
-            border-radius: 15px;
-            padding: 2rem;
+            background: linear-gradient(135deg, #0f2027, #203a43);
+            border: 2px solid rgba(0, 210, 255, 0.5);
+            border-radius: 20px;
+            padding: 2.5rem;
             max-width: 900px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .modal-header {
@@ -238,24 +296,27 @@
         }
 
         .modal-title {
-            font-size: 2rem;
-            color: #00ffff;
+            font-size: 2.2rem;
+            color: #00d2ff;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
         }
 
         .close-btn {
             background: transparent;
-            border: 2px solid #00ffff;
-            color: #00ffff;
-            padding: 0.5rem 1.5rem;
-            border-radius: 8px;
+            border: 2px solid #00d2ff;
+            color: #00d2ff;
+            padding: 0.6rem 1.8rem;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 1rem;
             transition: all 0.3s;
+            font-weight: 600;
         }
 
         .close-btn:hover {
-            background: #00ffff;
-            color: #1a2332;
+            background: #00d2ff;
+            color: #0f2027;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
         }
 
         .form-grid {
@@ -276,35 +337,39 @@
 
         label {
             color: #80d4e8;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         input, textarea {
-            background: rgba(20, 30, 40, 0.8);
-            border: 1px solid rgba(0, 200, 200, 0.3);
-            border-radius: 8px;
-            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
             color: #fff;
             font-family: inherit;
             font-size: 1rem;
+            transition: all 0.3s;
         }
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: #00ffff;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            border-color: #00d2ff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
         }
 
         .format-hint {
-            color: #6a8a9a;
+            color: #6a9aaa;
             font-size: 0.85rem;
-            margin-top: 0.3rem;
+            margin-top: 0.4rem;
+            font-style: italic;
         }
 
         .modal-actions {
@@ -315,32 +380,36 @@
         }
 
         .btn {
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 1rem;
             transition: all 0.3s;
+            font-weight: 600;
         }
 
         .btn-save {
-            background: #00cc88;
-            color: #fff;
+            background: linear-gradient(135deg, #00cc88, #00ff99);
+            color: #0f2027;
         }
 
         .btn-save:hover {
-            background: #00ff99;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
         }
 
         .btn-delete {
-            background: #cc3333;
+            background: linear-gradient(135deg, #cc3333, #ff4444);
             color: #fff;
         }
 
         .btn-delete:hover {
-            background: #ff4444;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 68, 68, 0.4);
         }
 
+        /* Sección de contenido */
         .content-section {
             display: none;
         }
@@ -351,20 +420,22 @@
 
         .info-section {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
 
         .info-section h1 {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            color: #00d2ff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(0, 210, 255, 0.8);
         }
 
         .info-section p {
-            font-size: 1.2rem;
-            color: #b0c4d4;
-            max-width: 600px;
+            font-size: 1.3rem;
+            color: #b0d4e3;
+            max-width: 700px;
             margin: 0 auto;
+            line-height: 1.8;
         }
 
         @media (max-width: 768px) {
@@ -377,17 +448,20 @@
             nav ul {
                 gap: 1rem;
             }
+            .page-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#" data-page="inicio" class="nav-link active">🏠 Inicio</a></li>
-            <li><a href="#" data-page="semanas" class="nav-link">📚 Semanas</a></li>
-            <li><a href="#" data-page="examenes" class="nav-link">📝 Exámenes</a></li>
-            <li><a href="#" data-page="recursos" class="nav-link">📦 Recursos</a></li>
-            <li><a href="#" data-page="contacto" class="nav-link">📧 Contacto</a></li>
+            <li><a href="#" data-page="inicio" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#" data-page="semanas" class="nav-link"><i class="fas fa-calendar-week"></i> Semanas</a></li>
+            <li><a href="#" data-page="examenes" class="nav-link"><i class="fas fa-file-alt"></i> Exámenes</a></li>
+            <li><a href="#" data-page="recursos" class="nav-link"><i class="fas fa-book"></i> Recursos</a></li>
+            <li><a href="#" data-page="contacto" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
         </ul>
     </nav>
 
@@ -395,33 +469,33 @@
         <div id="inicio" class="content-section active">
             <div class="info-section">
                 <h1>Bienvenido al Repositorio</h1>
-                <p>Sistema de gestión y almacenamiento de trabajos académicos organizados por semanas</p>
+                <p>Sistema de gestión y almacenamiento de trabajos académicos organizados por semanas. Explora, edita y administra tu contenido de manera eficiente.</p>
             </div>
         </div>
 
         <div id="semanas" class="content-section">
-            <h1 class="page-title">Semanas</h1>
+            <h1 class="page-title">Mis Semanas</h1>
             <div class="weeks-grid" id="weeksContainer"></div>
         </div>
 
         <div id="examenes" class="content-section">
             <div class="info-section">
                 <h1>Exámenes</h1>
-                <p>Sección en desarrollo</p>
+                <p>Sección de exámenes y evaluaciones</p>
             </div>
         </div>
 
         <div id="recursos" class="content-section">
             <div class="info-section">
                 <h1>Recursos</h1>
-                <p>Sección en desarrollo</p>
+                <p>Material complementario y recursos adicionales</p>
             </div>
         </div>
 
         <div id="contacto" class="content-section">
             <div class="info-section">
                 <h1>Contacto</h1>
-                <p>Sección en desarrollo</p>
+                <p>Información de contacto y soporte</p>
             </div>
         </div>
     </div>
@@ -429,40 +503,40 @@
     <div id="editModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Administrar Secciones</h2>
-                <button class="close-btn" onclick="closeModal()">✕ Cerrar</button>
+                <h2 class="modal-title"><i class="fas fa-edit"></i> Administrar Secciones</h2>
+                <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i> Cerrar</button>
             </div>
             <form id="editForm">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label>Número de Sección</label>
+                        <label><i class="fas fa-hashtag"></i> Número de Sección</label>
                         <input type="text" id="weekNumber" readonly>
                     </div>
                     <div class="form-group">
-                        <label>Título</label>
+                        <label><i class="fas fa-heading"></i> Título</label>
                         <input type="text" id="weekTitle" required>
                     </div>
                     <div class="form-group full">
-                        <label>Subtítulo</label>
+                        <label><i class="fas fa-align-left"></i> Subtítulo</label>
                         <input type="text" id="weekSubtitle">
                     </div>
                     <div class="form-group full">
-                        <label>Descripción</label>
+                        <label><i class="fas fa-file-alt"></i> Descripción</label>
                         <textarea id="weekDescription" rows="4"></textarea>
                     </div>
                     <div class="form-group full">
-                        <label>Enlaces (1 por línea)</label>
-                        <textarea id="weekLinks" rows="4" placeholder="Texto|URL (ej: Ver Manual Completo|https://ejemplo.com)"></textarea>
-                        <span class="format-hint">Formato: Texto|URL (ej: Ver Manual Completo|https://www.canva.com/design/XXX)</span>
+                        <label><i class="fas fa-link"></i> Enlaces (1 por línea)</label>
+                        <textarea id="weekLinks" rows="4" placeholder="Texto|URL"></textarea>
+                        <span class="format-hint">Formato: Texto|URL (ejemplo: Ver Manual Completo|https://www.canva.com/design/XXX)</span>
                     </div>
                     <div class="form-group full">
-                        <label>Etiquetas (separadas por comas)</label>
-                        <input type="text" id="weekTags" placeholder="Guía Práctica, Microsoft Azure, Registro de Usuarios">
+                        <label><i class="fas fa-tags"></i> Etiquetas (separadas por comas)</label>
+                        <input type="text" id="weekTags" placeholder="Guía Práctica, Microsoft Azure, SQL Server">
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button type="submit" class="btn btn-save">💾 Guardar Cambios</button>
-                    <button type="button" class="btn btn-delete" onclick="deleteWeek()">🗑️ Eliminar</button>
+                    <button type="submit" class="btn btn-save"><i class="fas fa-save"></i> Guardar Cambios</button>
+                    <button type="button" class="btn btn-delete" onclick="deleteWeek()"><i class="fas fa-trash"></i> Eliminar</button>
                 </div>
             </form>
         </div>
@@ -471,7 +545,6 @@
     <script>
         let weeks = [];
         let currentEditingWeek = null;
-
         const STORAGE_KEY = 'bd2-weeks-data';
 
         async function init() {
@@ -531,7 +604,7 @@
                 const card = document.createElement('div');
                 card.className = 'week-card';
                 const tagsHTML = week.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-                const linksHTML = week.links.map(link => `<button class="link-btn" onclick="window.open('${link.url}', '_blank')">${link.text}</button>`).join('');
+                const linksHTML = week.links.map(link => `<button class="link-btn" onclick="window.open('${link.url}', '_blank')"><i class="fas fa-external-link-alt"></i> ${link.text}</button>`).join('');
                 card.innerHTML = `
                     <div class="week-header">
                         <div class="week-number">${week.number}</div>
@@ -540,7 +613,7 @@
                             ${week.subtitle ? `<p class="week-subtitle">${week.subtitle}</p>` : ''}
                             <span class="week-badge">${week.badge}</span>
                         </div>
-                        <button class="edit-btn" onclick="openEditModal(${index})">📝 Editar</button>
+                        <button class="edit-btn" onclick="openEditModal(${index})"><i class="fas fa-edit"></i> Editar</button>
                     </div>
                     ${week.description ? `<p class="week-description">${week.description}</p>` : ''}
                     ${week.tags.length > 0 ? `<div class="week-tags">${tagsHTML}</div>` : ''}
@@ -570,15 +643,12 @@
 
         document.getElementById('editForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const week = weeks[currentEditingWeek];
             week.title = document.getElementById('weekTitle').value;
             week.subtitle = document.getElementById('weekSubtitle').value;
             week.description = document.getElementById('weekDescription').value;
-            
             const tagsInput = document.getElementById('weekTags').value;
             week.tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
-            
             const linksInput = document.getElementById('weekLinks').value;
             week.links = [];
             if (linksInput) {
@@ -593,11 +663,10 @@
                     }
                 });
             }
-            
             if (saveWeeks()) {
                 renderWeeks();
                 closeModal();
-                alert('Cambios guardados exitosamente');
+                alert('✅ Cambios guardados exitosamente');
             }
         });
 
@@ -614,11 +683,10 @@
                     links: [],
                     badge: 'Nuevo'
                 };
-                
                 if (saveWeeks()) {
                     renderWeeks();
                     closeModal();
-                    alert('Semana eliminada y restablecida');
+                    alert('🗑️ Semana eliminada y restablecida');
                 }
             }
         }
