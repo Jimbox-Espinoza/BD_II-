@@ -38,31 +38,13 @@
             height: 60px;
             cursor: pointer;
             transition: all 0.3s;
+            border-radius: 10px;
+            object-fit: cover;
         }
 
         .nav-logo:hover {
             transform: scale(1.1) rotate(5deg);
             filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.6));
-        }
-
-        .nav-logo-placeholder {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #0f2027;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .nav-logo-placeholder:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(0, 210, 255, 0.5);
         }
 
         nav ul {
@@ -111,7 +93,6 @@
             font-weight: 700;
         }
 
-        /* Indicador de progreso */
         .progress-section {
             display: flex;
             justify-content: center;
@@ -234,6 +215,12 @@
             opacity: 1;
         }
 
+        .week-card.destacado {
+            border: 3px solid #ffc107;
+            box-shadow: 0 0 30px rgba(255, 193, 7, 0.5);
+            background: rgba(255, 193, 7, 0.1);
+        }
+
         .week-header {
             display: flex;
             align-items: flex-start;
@@ -256,6 +243,16 @@
             font-weight: bold;
             flex-shrink: 0;
             box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        .week-number.destacado {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .week-title-section {
@@ -468,7 +465,6 @@
             box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -585,13 +581,6 @@
         textarea {
             resize: vertical;
             min-height: 120px;
-        }
-
-        .format-hint {
-            color: #6a9aaa;
-            font-size: 0.85rem;
-            margin-top: 0.4rem;
-            font-style: italic;
         }
 
         .links-manager {
@@ -756,7 +745,6 @@
             line-height: 1.8;
         }
 
-        /* Sección de Inicio - Perfil */
         .profile-section {
             max-width: 900px;
             margin: 3rem auto;
@@ -783,20 +771,6 @@
             box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
         }
 
-        .profile-image-placeholder {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #0f2027;
-            border: 4px solid #00d2ff;
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
-        }
-
         .profile-welcome {
             font-size: 2.5rem;
             color: #00d2ff;
@@ -814,105 +788,87 @@
             margin-right: auto;
         }
 
-        .profile-edit-btn {
-            background: linear-gradient(135deg, #00d2ff, #0099cc);
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 30px;
-            color: #0f2027;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.7rem;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .profile-edit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
-            background: linear-gradient(135deg, #00ffff, #00bfff);
-        }
-
-        
-
-        /* Modal de Perfil */
-        .profile-form-group {
-            margin-bottom: 2rem;
-        }
-
-        .image-upload-area {
-            border: 2px dashed rgba(0, 210, 255, 0.4);
-            border-radius: 15px;
+        .recurso-card {
+            background: rgba(15, 50, 70, 0.6);
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 20px;
             padding: 2rem;
-            text-align: center;
-            cursor: pointer;
             transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.03);
         }
 
-        .image-upload-area:hover {
-            border-color: rgba(0, 210, 255, 0.7);
-            background: rgba(255, 255, 255, 0.06);
+        .recurso-card:hover {
+            border-color: rgba(0, 210, 255, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
         }
 
-        .image-upload-area.dragover {
-            border-color: #00d2ff;
-            background: rgba(0, 210, 255, 0.1);
-        }
-
-        .upload-icon {
-            font-size: 3rem;
-            color: #00d2ff;
+        .recurso-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
             margin-bottom: 1rem;
         }
 
-        .upload-text {
+        .recurso-title {
+            font-size: 1.4rem;
+            color: #00d2ff;
+            margin-bottom: 0.8rem;
+        }
+
+        .recurso-link {
             color: #80d4e8;
-            font-size: 1rem;
+            text-decoration: none;
+            word-break: break-all;
+            font-size: 0.9rem;
         }
 
-        .image-preview {
-            max-width: 200px;
-            max-height: 200px;
-            border-radius: 15px;
-            margin: 1rem auto;
-            display: none;
-            border: 2px solid #00d2ff;
+        .recurso-link:hover {
+            color: #00d2ff;
         }
 
-        .image-preview.show {
-            display: block;
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
         }
 
-        .logo-upload-area {
-            border: 2px dashed rgba(0, 210, 255, 0.4);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
+        .contact-form h2 {
+            color: #00d2ff;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form button {
+            width: 100%;
+            background: linear-gradient(135deg, #00d2ff, #0099cc);
+            color: #0f2027;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.03);
         }
 
-        .logo-upload-area:hover {
-            border-color: rgba(0, 210, 255, 0.7);
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .logo-preview {
-            max-width: 100px;
-            max-height: 100px;
-            border-radius: 10px;
-            margin: 1rem auto;
-            display: none;
-        }
-
-        .logo-preview.show {
-            display: block;
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
         }
 
         @media (max-width: 768px) {
@@ -944,14 +900,15 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            .recursos-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
-       <div id="navLogoContainer" class="nav-logo-placeholder" onclick="openProfileModal()">
-            <i class="fas fa-image"></i>
-        </div>
+        <img src="https://via.placeholder.com/60/00d2ff/0f2027?text=BD" alt="Logo" class="nav-logo" id="navLogo">
         <ul>
             <li><a href="#" data-page="inicio" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
             <li><a href="#" data-page="semanas" class="nav-link"><i class="fas fa-calendar-week"></i> Semanas</a></li>
@@ -966,27 +923,21 @@
     <div class="container">
         <div id="inicio" class="content-section active">
             <div class="profile-section">
-                <div class="profile-image-container" id="profileImageContainer">
-                    <div class="profile-image-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
+                <div class="profile-image-container">
+                    <img src="https://via.placeholder.com/200/00d2ff/0f2027?text=JG" alt="Perfil" class="profile-image" id="profileImage">
                 </div>
-                <h1 class="profile-welcome" id="profileWelcome">Bienvenido a mi Repositorio de Base de Datos II</h1>
-                <p class="profile-bio" id="profileBio">Este respositorio almacena todas las actividades del curso de base de datos II</p>
+                <h1 class="profile-welcome">Bienvenido a mi Repositorio de Base de Datos II</h1>
+                <p class="profile-bio">Este repositorio almacena todas las actividades del curso de base de datos II</p>
             </div>
         </div>
 
         <div id="sobre-mi" class="content-section">
             <div class="info-section">
-                <div class="profile-image-container" id="aboutImageContainer" style="margin: 0 auto 2rem;">
-                    <div class="profile-image-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
+                <div class="profile-image-container" style="margin: 0 auto 2rem;">
+                    <img src="https://via.placeholder.com/200/00d2ff/0f2027?text=JG" alt="Perfil" class="profile-image" id="aboutImage">
                 </div>
                 <h1>Sobre Mí</h1>
-                <p id="aboutBio" style="white-space: pre-line;">Soy ESPINOZA FLORES, Jimmy Guido estudiante de la facultad de ingenieria en la universidad peruana los andes 
-                (UPLA) la carrera de ING. de Sistemas y Computacion, voy cursando el 6°to semestre en este transcurso a aprendido muchas cosas mas a fondo sobre el area y 
-                gusta seguir aprendiendo mas sobre mi carrera.</p>
+                <p style="white-space: pre-line;">Soy ESPINOZA FLORES, Jimmy Guido estudiante de la facultad de ingeniería en la universidad peruana los andes (UPLA) la carrera de ING. de Sistemas y Computación, voy cursando el 6°to semestre en este transcurso a aprendido muchas cosas mas a fondo sobre el área y gusta seguir aprendiendo más sobre mi carrera.</p>
             </div>
         </div>
 
@@ -1030,23 +981,62 @@
         </div>
 
         <div id="examenes" class="content-section">
+            <h1 class="page-title">Exámenes</h1>
             <div class="info-section">
-                <h1>Exámenes</h1>
-                <p>Sección de exámenes y evaluaciones</p>
+                <p>📝 Aquí encontrarás información sobre los exámenes del curso</p>
+                <div style="margin-top: 3rem; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <div class="week-card destacado" style="margin-bottom: 2rem;">
+                        <div class="week-header">
+                            <div class="week-number destacado">08</div>
+                            <div class="week-title-section">
+                                <h3 class="week-title">⭐ Examen Parcial - Semana 8</h3>
+                                <p class="week-subtitle">Primera evaluación del curso</p>
+                                <span class="week-badge importante">DESTACADO</span>
+                            </div>
+                        </div>
+                        <p class="week-description">Evaluación de los temas vistos desde la semana 1 hasta la semana 7. Incluye teoría y práctica sobre fundamentos de bases de datos.</p>
+                    </div>
+
+                    <div class="week-card destacado">
+                        <div class="week-header">
+                            <div class="week-number destacado">16</div>
+                            <div class="week-title-section">
+                                <h3 class="week-title">⭐ Examen Final - Semana 16</h3>
+                                <p class="week-subtitle">Evaluación final del curso</p>
+                                <span class="week-badge importante">DESTACADO</span>
+                            </div>
+                        </div>
+                        <p class="week-description">Evaluación integral de todos los temas del curso. Cubre desde la semana 8 hasta la semana 15, con énfasis en temas avanzados de bases de datos.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="recursos" class="content-section">
-            <div class="info-section">
-                <h1>Recursos</h1>
-                <p>Material complementario y recursos adicionales</p>
+            <h1 class="page-title">Recursos Adicionales</h1>
+            <div class="recursos-grid" id="recursosContainer">
+                <!-- Los recursos se cargarán aquí -->
             </div>
         </div>
 
         <div id="contacto" class="content-section">
-            <div class="info-section">
-                <h1>Contacto</h1>
-                <p>Información de contacto y soporte</p>
+            <div class="contact-form">
+                <h2><i class="fas fa-envelope"></i> Contáctame</h2>
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Nombre</label>
+                        <input type="text" id="contactName" required placeholder="Tu nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="contactEmail" required placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Mensaje</label>
+                        <textarea id="contactMessage" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
+                </form>
             </div>
         </div>
     </div>
@@ -1127,63 +1117,36 @@
         </div>
     </div>
 
-    <div id="profileModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title"><i class="fas fa-user-edit"></i> Editar Perfil</h2>
-                <button class="close-btn" onclick="closeProfileModal()"><i class="fas fa-times"></i> Cerrar</button>
-            </div>
-            <form id="profileForm">
-                <div class="form-group full profile-form-group">
-                    <label><i class="fas fa-image"></i> Logo del Menú</label>
-                    <div class="logo-upload-area" id="logoUploadArea">
-                        <i class="fas fa-upload upload-icon" style="font-size: 2rem;"></i>
-                        <p class="upload-text">Haz clic o arrastra tu logo aquí<br><small>Formato: JPG, PNG (Max 2MB)</small></p>
-                    </div>
-                    <img id="logoPreview" class="logo-preview">
-                    <input type="file" id="logoInput" accept="image/*" style="display: none;">
-                </div>
-
-                <div class="form-group full profile-form-group">
-                    <label><i class="fas fa-image"></i> Foto de Perfil</label>
-                    <div class="image-upload-area" id="imageUploadArea">
-                        <i class="fas fa-upload upload-icon"></i>
-                        <p class="upload-text">Haz clic o arrastra tu foto aquí<br><small>Formato: JPG, PNG (Max 2MB)</small></p>
-                    </div>
-                    <img id="imagePreview" class="image-preview">
-                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
-                </div>
-
-                <div class="form-group full">
-                    <label><i class="fas fa-heading"></i> Mensaje de Bienvenida</label>
-                    <input type="text" id="profileWelcomeInput" placeholder="Bienvenido al Repositorio">
-                </div>
-
-                <div class="form-group full">
-                    <label><i class="fas fa-align-left"></i> Biografía</label>
-                    <textarea id="profileBioInput" rows="6" placeholder="Escribe una breve descripción sobre ti..."></textarea>
-                </div>
-
-                <div class="modal-actions">
-                    <button type="submit" class="btn btn-save"><i class="fas fa-save"></i> Guardar Perfil</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <script>
         let weeks = [];
         let currentEditingWeek = null;
         let tempLinks = [];
         const STORAGE_KEY = 'bd2-weeks-data';
-        const PROFILE_KEY = 'bd2-profile-data';
 
-        let profileData = {
-            logo: '',
-            image: '',
-            welcome: 'Bienvenido al Repositorio',
-            bio: 'Sistema de gestión y almacenamiento de trabajos académicos organizados por semanas. Explora, edita y administra tu contenido de manera eficiente.'
+        // CONFIGURACIÓN DE IMÁGENES - Modifica estas URLs
+        const PROFILE_CONFIG = {
+            logo: 'https://via.placeholder.com/60/00d2ff/0f2027?text=BD', // Logo del menú
+            profileImage: 'https://via.placeholder.com/200/00d2ff/0f2027?text=JG' // Imagen de perfil
         };
+
+        // CONFIGURACIÓN DE RECURSOS - Agrega tus links e imágenes aquí
+        const RECURSOS = [
+            {
+                title: 'Tutorial de SQL',
+                image: 'https://via.placeholder.com/350x200/4169e1/ffffff?text=SQL+Tutorial',
+                link: 'https://www.w3schools.com/sql/'
+            },
+            {
+                title: 'Documentación PostgreSQL',
+                image: 'https://via.placeholder.com/350x200/0099cc/ffffff?text=PostgreSQL',
+                link: 'https://www.postgresql.org/docs/'
+            },
+            {
+                title: 'Guía de Normalización',
+                image: 'https://via.placeholder.com/350x200/9b59b6/ffffff?text=Normalizacion',
+                link: 'https://example.com/normalizacion'
+            }
+        ];
 
         const linkIcons = {
             canva: 'fa-palette',
@@ -1196,11 +1159,43 @@
 
         function init() {
             loadWeeks();
-            loadProfile();
             renderWeeks();
-            renderProfile();
+            renderRecursos();
             setupNavigation();
-            setupProfileUpload();
+            applyProfileImages();
+        }
+
+        function applyProfileImages() {
+            // Aplicar logo en el menú
+            document.getElementById('navLogo').src = PROFILE_CONFIG.logo;
+            
+            // Aplicar imagen de perfil
+            document.getElementById('profileImage').src = PROFILE_CONFIG.profileImage;
+            document.getElementById('aboutImage').src = PROFILE_CONFIG.profileImage;
+        }
+
+        function renderRecursos() {
+            const container = document.getElementById('recursosContainer');
+            container.innerHTML = RECURSOS.map(recurso => `
+                <div class="recurso-card">
+                    <img src="${recurso.image}" alt="${recurso.title}" class="recurso-image">
+                    <h3 class="recurso-title">${recurso.title}</h3>
+                    <a href="${recurso.link}" target="_blank" class="recurso-link">
+                        <i class="fas fa-external-link-alt"></i> ${recurso.link}
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            alert(`✅ Mensaje enviado!\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}\n\nEn un proyecto real, esto se enviaría a un servidor.`);
+            
+            document.getElementById('contactForm').reset();
         }
 
         function loadWeeks() {
@@ -1232,182 +1227,6 @@
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(weeks));
         }
 
-        function loadProfile() {
-            const stored = sessionStorage.getItem(PROFILE_KEY);
-            if (stored) {
-                profileData = JSON.parse(stored);
-            }
-        }
-
-        function saveProfile() {
-            sessionStorage.setItem(PROFILE_KEY, JSON.stringify(profileData));
-        }
-
-        function renderProfile() {
-            // Logo en el menú
-            const navLogoContainer = document.getElementById('navLogoContainer');
-            if (profileData.logo) {
-                navLogoContainer.innerHTML = `<img src="${profileData.logo}" alt="Logo" class="nav-logo">`;
-            } else {
-                navLogoContainer.innerHTML = '<i class="fas fa-image"></i>';
-                navLogoContainer.className = 'nav-logo-placeholder';
-            }
-
-            // Imagen de perfil en Inicio
-            const profileImageContainer = document.getElementById('profileImageContainer');
-            if (profileData.image) {
-                profileImageContainer.innerHTML = `<img src="${profileData.image}" alt="Perfil" class="profile-image">`;
-            } else {
-                profileImageContainer.innerHTML = '<div class="profile-image-placeholder"><i class="fas fa-user"></i></div>';
-            }
-
-            // Imagen de perfil en Sobre Mí
-            const aboutImageContainer = document.getElementById('aboutImageContainer');
-            if (profileData.image) {
-                aboutImageContainer.innerHTML = `<img src="${profileData.image}" alt="Perfil" class="profile-image">`;
-            } else {
-                aboutImageContainer.innerHTML = '<div class="profile-image-placeholder"><i class="fas fa-user"></i></div>';
-            }
-
-            // Textos
-            document.getElementById('profileWelcome').textContent = profileData.welcome;
-            document.getElementById('profileBio').textContent = profileData.bio;
-            document.getElementById('aboutBio').textContent = profileData.bio;
-        }
-
-        function setupProfileUpload() {
-            const imageUploadArea = document.getElementById('imageUploadArea');
-            const imageInput = document.getElementById('imageInput');
-            const imagePreview = document.getElementById('imagePreview');
-
-            const logoUploadArea = document.getElementById('logoUploadArea');
-            const logoInput = document.getElementById('logoInput');
-            const logoPreview = document.getElementById('logoPreview');
-
-            // Upload de imagen de perfil
-            imageUploadArea.addEventListener('click', () => imageInput.click());
-            
-            imageUploadArea.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                imageUploadArea.classList.add('dragover');
-            });
-
-            imageUploadArea.addEventListener('dragleave', () => {
-                imageUploadArea.classList.remove('dragover');
-            });
-
-            imageUploadArea.addEventListener('drop', (e) => {
-                e.preventDefault();
-                imageUploadArea.classList.remove('dragover');
-                const file = e.dataTransfer.files[0];
-                if (file && file.type.startsWith('image/')) {
-                    handleImageUpload(file, imagePreview);
-                }
-            });
-
-            imageInput.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    handleImageUpload(file, imagePreview);
-                }
-            });
-
-            // Upload de logo
-            logoUploadArea.addEventListener('click', () => logoInput.click());
-            
-            logoUploadArea.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                logoUploadArea.classList.add('dragover');
-            });
-
-            logoUploadArea.addEventListener('dragleave', () => {
-                logoUploadArea.classList.remove('dragover');
-            });
-
-            logoUploadArea.addEventListener('drop', (e) => {
-                e.preventDefault();
-                logoUploadArea.classList.remove('dragover');
-                const file = e.dataTransfer.files[0];
-                if (file && file.type.startsWith('image/')) {
-                    handleImageUpload(file, logoPreview);
-                }
-            });
-
-            logoInput.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    handleImageUpload(file, logoPreview);
-                }
-            });
-        }
-
-        function handleImageUpload(file, previewElement) {
-            if (file.size > 2 * 1024 * 1024) {
-                alert('❌ La imagen es muy grande. Máximo 2MB');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                previewElement.src = e.target.result;
-                previewElement.classList.add('show');
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function openProfileModal() {
-            document.getElementById('profileWelcomeInput').value = profileData.welcome;
-            document.getElementById('profileBioInput').value = profileData.bio;
-            
-            const imagePreview = document.getElementById('imagePreview');
-            const logoPreview = document.getElementById('logoPreview');
-            
-            if (profileData.image) {
-                imagePreview.src = profileData.image;
-                imagePreview.classList.add('show');
-            } else {
-                imagePreview.classList.remove('show');
-            }
-
-            if (profileData.logo) {
-                logoPreview.src = profileData.logo;
-                logoPreview.classList.add('show');
-            } else {
-                logoPreview.classList.remove('show');
-            }
-            
-            document.getElementById('profileModal').classList.add('active');
-        }
-
-        function closeProfileModal() {
-            document.getElementById('profileModal').classList.remove('active');
-            document.getElementById('imageInput').value = '';
-            document.getElementById('logoInput').value = '';
-        }
-
-        document.getElementById('profileForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const imagePreview = document.getElementById('imagePreview');
-            const logoPreview = document.getElementById('logoPreview');
-            
-            if (imagePreview.classList.contains('show')) {
-                profileData.image = imagePreview.src;
-            }
-
-            if (logoPreview.classList.contains('show')) {
-                profileData.logo = logoPreview.src;
-            }
-            
-            profileData.welcome = document.getElementById('profileWelcomeInput').value;
-            profileData.bio = document.getElementById('profileBioInput').value;
-            
-            saveProfile();
-            renderProfile();
-            closeProfileModal();
-            alert('✅ Perfil actualizado exitosamente');
-        });
-
         function renderWeeks() {
             const container = document.getElementById('weeksContainer');
             if (!container) return;
@@ -1417,7 +1236,8 @@
             container.innerHTML = '';
             weeks.forEach((week, index) => {
                 const card = document.createElement('div');
-                card.className = 'week-card';
+                const isDestacado = week.number === '08' || week.number === '16';
+                card.className = 'week-card' + (isDestacado ? ' destacado' : '');
                 
                 const tagsHTML = week.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
                 
@@ -1442,9 +1262,9 @@
                         </button>
                     </div>
                     <div class="week-header">
-                        <div class="week-number">${week.number}</div>
+                        <div class="week-number${isDestacado ? ' destacado' : ''}">${week.number}</div>
                         <div class="week-title-section">
-                            <h3 class="week-title">${week.title}</h3>
+                            <h3 class="week-title">${isDestacado ? '⭐ ' : ''}${week.title}</h3>
                             ${week.subtitle ? `<p class="week-subtitle">${week.subtitle}</p>` : ''}
                             <span class="week-badge ${week.badge}">${badgeText[week.badge] || 'Nuevo'}</span>
                         </div>
@@ -1475,7 +1295,6 @@
             const completedWeeks = stats['terminado'];
             const percentage = Math.round((completedWeeks / totalWeeks) * 100);
             
-            // Actualizar círculo de progreso
             const circle = document.getElementById('progressCircle');
             const percentageText = document.getElementById('progressPercentage');
             if (circle && percentageText) {
@@ -1485,7 +1304,6 @@
                 percentageText.textContent = percentage + '%';
             }
             
-            // Actualizar estadísticas
             const statsContainer = document.getElementById('statsContainer');
             if (statsContainer) {
                 const labels = {
@@ -1637,17 +1455,7 @@
             }
         });
 
-        document.getElementById('profileModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeProfileModal();
-            }
-        });
-
         init();
     </script>
 </body>
 </html>
-
-
-
-
