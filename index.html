@@ -1123,29 +1123,39 @@
         let tempLinks = [];
         const STORAGE_KEY = 'bd2-weeks-data';
 
-        // CONFIGURACIÓN DE IMÁGENES - Modifica estas URLs
+        // ============================================
+        // CONFIGURACIÓN DE IMÁGENES
+        // ============================================
+        // Coloca tus imágenes en una carpeta (ejemplo: "img/")
+        // y cambia las rutas aquí:
+        
         const PROFILE_CONFIG = {
-            logo: 'https://via.placeholder.com/60/00d2ff/0f2027?text=BD', // Logo del menú
-            profileImage: 'https://via.placeholder.com/200/00d2ff/0f2027?text=JG' // Imagen de perfil
+            logo: 'img/logo upla.png',              // Logo del menú (60x60px recomendado)
+            profileImage: 'img/Perfil.jpeg'    // Foto de perfil (200x200px recomendado)
         };
 
-        // CONFIGURACIÓN DE RECURSOS - Agrega tus links e imágenes aquí
+        // ============================================
+        // CONFIGURACIÓN DE RECURSOS
+        // ============================================
+        // Agrega tus recursos aquí con imágenes locales
+        
         const RECURSOS = [
             {
                 title: 'Tutorial de SQL',
-                image: 'https://via.placeholder.com/350x200/4169e1/ffffff?text=SQL+Tutorial',
-                link: 'https://www.w3schools.com/sql/'
+                image: 'img/recurso1.jpg',           // Imagen del recurso
+                link: 'https://www.ejemplo.com/sql'  // Link del recurso
             },
             {
                 title: 'Documentación PostgreSQL',
-                image: 'https://via.placeholder.com/350x200/0099cc/ffffff?text=PostgreSQL',
+                image: 'img/recurso2.jpg',
                 link: 'https://www.postgresql.org/docs/'
             },
             {
                 title: 'Guía de Normalización',
-                image: 'https://via.placeholder.com/350x200/9b59b6/ffffff?text=Normalizacion',
+                image: 'img/recurso3.jpg',
                 link: 'https://example.com/normalizacion'
             }
+            // Agrega más recursos aquí siguiendo el mismo formato
         ];
 
         const linkIcons = {
