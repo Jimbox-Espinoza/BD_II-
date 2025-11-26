@@ -1,0 +1,157 @@
+[
+  {
+    "number": "01",
+    "title": "Introducción a Base de Datos II",
+    "subtitle": "Conceptos fundamentales y arquitectura",
+    "description": "En esta semana estudiamos los conceptos básicos de bases de datos avanzadas, incluyendo arquitectura de sistemas de gestión de bases de datos y modelos de datos.",
+    "tags": ["Fundamentos", "Teoría", "Arquitectura"],
+    "links": [
+      {
+        "type": "pdf",
+        "url": "https://ejemplo.com/semana1.pdf",
+        "text": "Ver PDF Semana 1"
+      },
+      {
+        "type": "canva",
+        "url": "https://www.canva.com/design/ejemplo",
+        "text": "Presentación en Canva"
+      }
+    ],
+    "badge": "terminado"
+  },
+  {
+    "number": "02",
+    "title": "Semana 2",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "03",
+    "title": "Semana 3",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "04",
+    "title": "Semana 4",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "05",
+    "title": "Semana 5",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "06",
+    "title": "Semana 6",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "07",
+    "title": "Semana 7",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "08",
+    "title": "Primer Examen Parcial",
+    "subtitle": "Evaluación de medio ciclo",
+    "description": "Examen que abarca las semanas 1-7",
+    "tags": ["Examen", "Evaluación"],
+    "links": [],
+    "badge": "importante"
+  },
+  {
+    "number": "09",
+    "title": "Semana 9",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "10",
+    "title": "Semana 10",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "11",
+    "title": "Semana 11",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "12",
+    "title": "Semana 12",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "13",
+    "title": "Semana 13",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "14",
+    "title": "Semana 14",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "15",
+    "title": "Semana 15",
+    "subtitle": "",
+    "description": "",
+    "tags": [],
+    "links": [],
+    "badge": "nuevo"
+  },
+  {
+    "number": "16",
+    "title": "Examen Final",
+    "subtitle": "Evaluación final del curso",
+    "description": "Examen que abarca todo el contenido del semestre",
+    "tags": ["Examen", "Evaluación Final"],
+    "links": [],
+    "badge": "importante"
+  }
+]
