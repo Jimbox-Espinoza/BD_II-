@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Tutorial de SQL Avanzado",
+    "description": "Guía completa sobre consultas SQL complejas, subconsultas y optimización de queries.",
+    "image": "img/sql-tutorial.jpg",
+    "url": "https://www.ejemplo.com/sql-tutorial"
+  },
+  {
+    "title": "Documentación PostgreSQL",
+    "description": "Documentación oficial de PostgreSQL con ejemplos y mejores prácticas.",
+    "image": "img/postgresql.jpg",
+    "url": "https://www.postgresql.org/docs/"
+  },
+  {
+    "title": "Curso de Normalización de BD",
+    "description": "Video curso sobre formas normales y diseño de bases de datos relacionales.",
+    "image": "img/normalizacion.jpg",
+    "url": "https://www.ejemplo.com/normalizacion"
+  }
+]
